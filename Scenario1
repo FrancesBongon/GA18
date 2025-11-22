@@ -9,7 +9,7 @@ $id = $_GET['id'];
 
 /*I changed the $_POST into $_GET because the data is acquired from the URL. 
 Because if GET request is being used, so ?id=3 is used in the URL. It will not go through POST form.
-If POST request otherwise, it will be undefined index because there is no POST data is received.
+If POST request otherwise, it will be undefined index because there is no POST data is received./*
 
 $sql = "SELECT * FROM students WHERE id = $id";
 $res = mysqli_query($conn, $sql);
