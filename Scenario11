@@ -3,5 +3,13 @@
 // Wrong: Wrong use of $_POST when the form method is GET.
 // $email = $_POST['email'];
 
-$email = $_POST['email'];
+// Correct: Use $_GET instead of $_POST because the form method is GET
+$email = $_GET['email'];
+
+/*
+If $_POST were used in a GET method instead, 
+it will only result to undefined index error
+because there is no POST data being delivered.
+*/
+
 ?>
