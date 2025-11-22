@@ -1,4 +1,8 @@
 <?php
+
+// Wrong: Wrong use of $_POST when the link is GET request.
+// $id = $_POST['id'];
+
 $id = $_POST['id'];
 ?>
 <a href="view.php?id=3">View Student</a>
