@@ -1,5 +1,10 @@
 <?php
 $data = $_POST;
+
+// Wrong: $data has no quotes which results to undefined index or SQL error.
+// $sql = "INSERT INTO students (first_name, last_name, email)
+// VALUES ($data[first_name], $data[last_name], $data[email])";
+
 $sql = "INSERT INTO students (first_name, last_name, email)
 VALUES ($data[first_name], $data[last_name], $data[email])";
 ?>
