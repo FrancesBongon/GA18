@@ -5,6 +5,13 @@ $data = $_POST;
 // $sql = "INSERT INTO students (first_name, last_name, email)
 // VALUES ($data[first_name], $data[last_name], $data[email])";
 
+// Correct: Fix the indexing and add quotations.
+$first = $data['first_name'];
+$last = $data['last_name'];
+$email = $data['email'];
+
 $sql = "INSERT INTO students (first_name, last_name, email)
-VALUES ($data[first_name], $data[last_name], $data[email])";
+VALUES ('$first', '$last', '$email')";
+$res = mysqli_query($conn, $sql);
+
 ?>
