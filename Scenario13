@@ -1,5 +1,10 @@
 <?php
 $newEmail = $_POST['email'];
+
+// MALI: There is no WHERE clause which is why it updates the entire rows.
+// $sql = "UPDATE students SET email='$newEmail'";
+// mysqli_query($conn,$sql);
+
 $sql = "UPDATE students SET email='$newEmail'";
 mysqli_query($conn,$sql);
 ?>
