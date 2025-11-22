@@ -6,7 +6,16 @@ $conn = mysqli_connect("localhost","root","","class_db");
 // $row = mysqli_fetch_assoc($res);
 // echo $row['email']; // prints first only
 
+// Correct: I used while loop in order to display all emails instead of just a single one. 
 $res = mysqli_query($conn,"SELECT * FROM students");
-$row = mysqli_fetch_assoc($res);
-echo $row['email']; // prints first only
+while($row = mysqli_fetch_assoc($res)) {
+    echo $row['email'] . "<br>";
+}
+
+/*
+With this, it will fetch and print out all the records of the students
+because without the while loop, it will only display one record because
+it would only fetch one.
+*/
+
 ?>
