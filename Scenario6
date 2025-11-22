@@ -5,6 +5,21 @@ $conn = mysqli_connect("localhost","root","","class_db");
 // $sql = "DELETE FROM students WHERE id = " . $_GET['id'];
 // mysqli_query($conn, $sql);
 
-$sql = "DELETE FROM students WHERE id = " . $_GET['id'];
-mysqli_query($conn, $sql);
+/* 
+Right: In this case, I thought of two ways to solve this. 
+One which involves using intval() to force integer.
+*/
+$id = intval($_GET['id']);
+
+// Or we could apply prepared statement which is more secure.
+$stmt = $conn->prepare("DELETE FROM students WHERE id = ?");
+$stmt->bind_param("i", $id);
+$stmt->execute();
+
+/*
+With these, we can prevent the entire rows from being deleted 
+if the user were to input 0 or 1=1 because the query is now safe 
+and the id will only be accepted.
+*/
+
 ?>
