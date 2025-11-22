@@ -1,5 +1,14 @@
 <?php
 $conn = mysqli_connect("localhost","root","","class_db");
+
+// I discovered two wrongs in this scenario
+// Wrong #1: There are no quotes on $email which causes SQL error
+// $sql = "UPDATE students SET email=$email WHERE id=$id";
+
+// Wrong #2: There is also no error checking. So even if it fails, the code will still print "Updated!"
+// $res = mysqli_query($conn, $sql);
+// echo "Updated!";
+
 $id = $_POST['id'];
 $email = $_POST['email'];
 $sql = "UPDATE students SET email=$email WHERE id=$id";
