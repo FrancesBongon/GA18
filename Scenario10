@@ -4,6 +4,8 @@
 // $sql = "SELECT * FROM students WHERE age = $aeg";
 
 $age = $_POST['age'];
-$sql = "SELECT * FROM students WHERE age = $aeg"; // wrong variable
-name
+
+// Correct: Changing and correcting the variable name.
+$sql = "SELECT * FROM students WHERE age = $age";
+
 ?>
