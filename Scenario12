@@ -1,4 +1,9 @@
 <?php
 $id = $_GET['id'];
+
+// Wrong: The id is an integer yet it was still used as a value
+which is not really efficient, and sometimes wrong use of index.
+// $sql = "SELECT * FROM students WHERE id = '$id'";
+
 $sql = "SELECT * FROM students WHERE id = '$id'"; // id is int
 ?>
