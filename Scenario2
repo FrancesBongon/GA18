@@ -1,6 +1,15 @@
 <?php
 $conn = mysqli_connect("localhost","root","","class_db");
 $fname = $_POST['fname'];
+
+// Wrong: There are no quotation marks used in $fname, 
+that's why there is error in selecting such as unknown column 'Ana' 
+because they mistake it as a column.
+($sql = "SELECT * FROM students WHERE first_name = $fname";)
+
+// Right: This time, I used single quotes in order for it to become a string in SQL
+$sql = "SELECT * FROM students WHERE first_name = '$fname'";
+
 $sql = "SELECT * FROM students WHERE first_name = $fname";
 $res = mysqli_query($conn, $sql);
 ?>
