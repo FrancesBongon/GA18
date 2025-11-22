@@ -2,7 +2,6 @@
 $conn = mysqli_connect("localhost","root","","class_db");
 
 // Wrong: Including it within the SQL query would result to SQL injection
-// $age = $_GET['age'];
 // $sql = "SELECT * FROM students WHERE age = $age";
 
 // Right: Use prepared statement to be safe against SQL injection
