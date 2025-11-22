@@ -1,6 +1,14 @@
 <?php
 $page = $_GET['page'];
 $limit = 5;
+
+/*
+Wrong: There is no validation, in which the user can 
+input large page number and could cause MySQL to crash. 
+*/
+// $offset = $page * $limit;
+// $sql = "SELECT * FROM students LIMIT $offset, $limit";
+
 $offset = $page * $limit;
 $sql = "SELECT * FROM students LIMIT $offset, $limit";
 ?>
