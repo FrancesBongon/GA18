@@ -3,6 +3,13 @@
 // Wrong: Wrong use of $_POST when the link is GET request.
 // $id = $_POST['id'];
 
-$id = $_POST['id'];
+// Correct: I used $_GET instead of $_POST in order to get the id from the URL
+$id = $_GET['id'];
+
+/*
+I used $_GET instead of $_POST because if this was used instead,  
+it will result to undefined index because there is no POST data. 
+*/
+
 ?>
 <a href="view.php?id=3">View Student</a>
