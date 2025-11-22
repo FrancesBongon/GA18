@@ -1,5 +1,10 @@
 <?php
 $conn = mysqli_connect("localhost","root","","class_db");
+
+// Wrong: $_GET['id'] was directly used in query which could risk unwanted results or SQL injection.
+// $sql = "DELETE FROM students WHERE id = " . $_GET['id'];
+// mysqli_query($conn, $sql);
+
 $sql = "DELETE FROM students WHERE id = " . $_GET['id'];
 mysqli_query($conn, $sql);
 ?>
