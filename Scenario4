@@ -2,6 +2,11 @@
 $conn = mysqli_connect("localhost","root","","class_db");
 $first = $_POST['fname'];
 $last = $_POST['lname'];
+
+// Wrong: direct insertion even when the form is empty, which is why it inserts blank rows instead.
+// $sql = "INSERT INTO students (first_name,last_name) VALUES ('$first','$last')";
+// mysqli_query($conn, $sql);
+
 $sql = "INSERT INTO students (first_name,last_name) VALUES ('$first',
 '$last')";
 mysqli_query($conn, $sql);
