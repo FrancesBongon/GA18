@@ -1,3 +1,7 @@
 <?php
+
+// Wrong: Wrong use of $_POST when the form method is GET.
+// $email = $_POST['email'];
+
 $email = $_POST['email'];
 ?>
