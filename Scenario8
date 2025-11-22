@@ -1,5 +1,11 @@
 <?php
 $conn = mysqli_connect("localhost","root","","class_db");
+
+// Wrong: There is no loop which is why it prints out only a single one.
+// $res = mysqli_query($conn,"SELECT * FROM students");
+// $row = mysqli_fetch_assoc($res);
+// echo $row['email']; // prints first only
+
 $res = mysqli_query($conn,"SELECT * FROM students");
 $row = mysqli_fetch_assoc($res);
 echo $row['email']; // prints first only
