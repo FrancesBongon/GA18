@@ -10,6 +10,6 @@ because they mistake it as a column.
 // Right: This time, I used single quotes in order for it to become a string in SQL
 $sql = "SELECT * FROM students WHERE first_name = '$fname'";
 
-$sql = "SELECT * FROM students WHERE first_name = $fname";
+$sql = "SELECT * FROM students WHERE first_name = '$fname'";
 $res = mysqli_query($conn, $sql);
 ?>
