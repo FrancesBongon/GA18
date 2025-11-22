@@ -7,8 +7,23 @@ $last = $_POST['lname'];
 // $sql = "INSERT INTO students (first_name,last_name) VALUES ('$first','$last')";
 // mysqli_query($conn, $sql);
 
-$sql = "INSERT INTO students (first_name,last_name) VALUES ('$first',
-'$last')";
-mysqli_query($conn, $sql);
-echo "Inserted!";
+// Right: check first if the input has contents in it before inserting.
+if(!empty($first) && !empty($last)) {
+
+    // prepared statement
+    $stmt = $conn->prepare("INSERT INTO students (first_name, last_name) VALUES (?, ?)");
+    $stmt->bind_param("ss", $first, $last); // "ss" = 2 strings
+    $stmt->execute();
+
+    echo "Inserted!";
+} else {
+    echo "Error: Please fill in all fields!";
+}
+
+/*
+I added the check in order to validate if the fname or lname is blank or not before inserting. 
+If it were the case, and the input is blank, it would not be possible to insert and the outcome would be error.
+I further added prepared statement to protect it from SQL injection.
+*/
+
 ?>
