@@ -5,10 +5,23 @@ $limit = 5;
 /*
 Wrong: There is no validation, in which the user can 
 input large page number and could cause MySQL to crash. 
+Wrong: The offset calculation is off by one.
 */
 // $offset = $page * $limit;
 // $sql = "SELECT * FROM students LIMIT $offset, $limit";
 
-$offset = $page * $limit;
+// Correct: Validate and add restriction to the page number.
+$page = (int) $page; 
+if($page < 0) {
+    $page = 0; // minimum page 0
+} elseif($page > 1000) { // maximum page limit
+    $page = 1000;
+}
+
+// Correct: Use ($page - 1) * $limit for the correct starting row.
+
+$offset = ($page - 1) * $limit;
 $sql = "SELECT * FROM students LIMIT $offset, $limit";
+$res = mysqli_query($conn, $sql);
+
 ?>
