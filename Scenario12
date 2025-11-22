@@ -5,5 +5,16 @@ $id = $_GET['id'];
 which is not really efficient, and sometimes wrong use of index.
 // $sql = "SELECT * FROM students WHERE id = '$id'";
 
-$sql = "SELECT * FROM students WHERE id = '$id'"; // id is int
+// Correct: Remove the quotes or cast it on integer.
+$id = (int) $_GET['id'];
+$sql = "SELECT * FROM students WHERE id = $id";
+
+/*
+I modified the query to remove the quotes from the id, 
+which is an integer value. I also use (int) to cast it to an integer, 
+ensuring that the id is a number and making the query more efficient. 
+If there are quotes, it sometimes becomes a string comparison, 
+which can result in the wrong index being retrieved.
+*/
+
 ?>
