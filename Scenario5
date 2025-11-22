@@ -4,7 +4,9 @@ $conn = mysqli_connect("localhost","root","","class_db");
 // Wrong: only a typo on the input name that caused the undefined index error
 // $email = $_POST['emial']; 
 
-$email = $_POST['emial']; // misspelled
+// Right: correction of the spelling "emial" into "email"
+
+$email = $_POST['email'];
 $sql = "SELECT * FROM students WHERE email='$email'";
 $res = mysqli_query($conn, $sql);
 ?>
